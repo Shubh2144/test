@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="form.css">
+</head>
+
+<body>
+	<div class="container">
+		<br>
+
+<form onsubmit="return myfun()" method="POST" action="">
+
+	<div class="form-group">
+		<label>Full Name</label>
+		<input type=text id="fname" value="">
+		<span id="ferror" style="color: red;"></span>
+	</div>
+
+	<div class="form-group">
+		<label>Email</label>
+		<input type =text id="eml" value="">
+		<span id="eerror" style="color: red;"></span>
+	</div>
+	
+	<div class="form-group">
+		<label>Phone Number</label>
+		<input type="text" id="mbno" value="">
+		<span id="pherror" style="color: red;"></span>
+	</div>
+
+
+	<input type =submit name=sbm value=Submit>
+</form>
+
+	</div>
+
+<script>
+	function myfun()
+{
+	var fullname=document.getElementById("fname").value;
+	var email=document.getElementById("eml").value;
+	var phone=document.getElementById("mbno").value;
+
+	var fullncheck = /^[A-Za-z ]{2,}$/;
+	var emailcheck = /^[A-Za-z._]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+	var phonecheck = /^[789][0-9]{9}$/;
+
+	 ///\s-\d{3}-\d{4}$/gm
+
+	 if (fullncheck.test(fullname))
+	 {
+	 	document.getElementById("ferror").innerHTML="";
+		
+	 }
+	 else
+	 {
+	 	document.getElementById("ferror").innerHTML="Please enter valid name";
+		return false;
+	 }
+
+
+	 if (emailcheck.test(email))
+	 {
+	 	document.getElementById("eerror").innerHTML="";
+		
+	 }
+	 else
+	 {
+	 	document.getElementById("eerror").innerHTML="Please enter valid email";
+		return false;
+	 }
+	
+	 if (phonecheck.test(phone))
+	 {
+	 	document.getElementById("pherror").innerHTML="";
+		
+	 }
+
+	 else
+	 {
+	 	document.getElementById("pherror").innerHTML="Please enter valid phone number";
+		return false;
+	 }
+
+
+}
+
+</script>
+</body>
+</html>
+
+
+
+
